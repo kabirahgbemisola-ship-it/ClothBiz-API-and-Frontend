@@ -1,6 +1,7 @@
 
 const API_BASE_URL =
-  typeof window !== "undefined" && window.location.port === "3003"
+  typeof window !== "undefined" &&
+  (window.location.port === "3003" || !["localhost", "127.0.0.1"].includes(window.location.hostname))
     ? "/api"
     : "http://localhost:3003/api";
 

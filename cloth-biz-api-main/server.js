@@ -7,6 +7,7 @@ import corsWhitelist from "./config/corsWhitelist.js";
 import { loadConfig } from "./config/env.js";
 import mongoose from "mongoose";
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 dotenv.config()
 
@@ -25,7 +26,11 @@ app.get("/", (req, resp) => {
 app.use("/api", router);
 
 app.get(/^\/Shop(?:\/.*)?$/, (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "frontend", "dist", "index.html"));
+  const indexPath = path.join(__dirname, "..", "frontend", "dist", "index.html");
+  if (fs.existsSync(indexPath)) {
+    return res.sendFile(indexPath);
+  }
+  return res.status(200).send("ClothBiz API is live! Frontend is building or not built. Access API at /api/all");
 });
 
 let httpServer;
