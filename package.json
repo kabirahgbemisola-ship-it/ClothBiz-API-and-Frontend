@@ -1,0 +1,10 @@
+{
+  "name": "cloth-biz-api-complete",
+  "private": true,
+  "scripts": {
+    "start": "npm.cmd --prefix cloth-biz-api-main start",
+    "dev": "npm.cmd --prefix cloth-biz-api-main run dev",
+    "test:db": "npm.cmd --prefix cloth-biz-api-main run test:db",
+    "migrate:atlas": "npm.cmd --prefix cloth-biz-api-main run migrate:atlas"
+  }
+}
