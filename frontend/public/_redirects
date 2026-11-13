@@ -1,0 +1,6 @@
+/api/*          https://clothbiz-api-and-frontend.onrender.com/api/:splat  200!
+/Shop/assets/*  /assets/:splat                                             200
+/Shop/favicon.svg /favicon.svg                                             200
+/               /Shop/                                                     301
+/Shop/*         /index.html                                                200
+/*              /index.html                                                200
